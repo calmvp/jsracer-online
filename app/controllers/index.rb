@@ -3,12 +3,12 @@ get '/' do
   erb :index
 end
 
-get '/victory' do
+post '/victory' do
   @winner = Player.find_by_name(params[:winner])
   @loser = Player.find_by_name(params[:loser])
   @game = Game.last.update_attributes(race_time: params[:raceTime], winner: @winner.id, loser: @loser.id)
   @ranking = Game.where(winner: @winner.id).order("race_time").limit(10)
-  redirect '/victory'
+  erb :victory, layout: false
 end
 
 post '/racer' do

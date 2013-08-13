@@ -30,11 +30,11 @@ $(document).ready(function(){
           var params = $.param(data)
 
           // console.log($params)
-          // $.post('/victory', data, function()
-            // {
-             window.location.href= "/victory?" +params;
+          $.post('/victory', data, function(response)
+            {
+             $('body').html(response);
              
-           // });
+            });
         
         }
       else
@@ -47,9 +47,10 @@ $(document).ready(function(){
           };
 
           var params = $.param(data)
-          // $.post('/victory', data, function(){
-            window.location.href="/victory?"+ params;
-          // });
+          $.post('/victory', data, function(response)
+          {
+            $('body').html(response)          
+          });
       
         }
     }
