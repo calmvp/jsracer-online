@@ -4,6 +4,7 @@ class CreateGamesTable < ActiveRecord::Migration
       t.integer :winner
       t.integer :loser
       t.integer :race_time
+      t.string  :game_code
       t.timestamps
     end 
   end

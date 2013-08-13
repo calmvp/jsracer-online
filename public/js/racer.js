@@ -1,7 +1,10 @@
 $(document).ready(function(){
   raceStart = new Date();
-  console.log(raceStart);
+  
+  //instantiate objects. players, game. 
+  //game contains -- racetime, winner, loser, board position
 
+  console.log(raceStart);
 
   $(this).keyup(function(event){
     if (event.keyCode == 81){

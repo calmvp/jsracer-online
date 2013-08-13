@@ -14,7 +14,7 @@ end
 post '/racer' do
   @player1 = Player.find_or_create_by_name(params[:post][:name1])
   @player2 = Player.find_or_create_by_name(params[:post][:name2])
-  @game = Game.create
+  @game = Game.create(game_code: Game.random_code)
   @round1 = Round.create(player_id: @player1.id, game_id: @game.id) 
   @round2 = Round.create(player_id: @player2.id, game_id: @game.id)
   erb :racer
