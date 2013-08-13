@@ -16,7 +16,7 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
-
+gem 'debugger'
 group :test do
   gem 'faker'
   gem 'rspec'
