@@ -1,0 +1,8 @@
+<h1>Congratulations, <%= @winner.name  %>! You have defeated your opponent! Your name will live forever in honor and glory! May your reign never end...</h1>
+
+<ol>
+  <% @ranking.each_with_index do |rank, index| %>
+    <li><%= index %>. <%= rank.race_time %></li>
+  <% end  %>
+</ol>
+

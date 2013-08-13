@@ -27,7 +27,14 @@ $(document).ready(function(){
             loser : p2
           };
 
-          $.post('/victory', data);
+          var params = $.param(data)
+
+          // console.log($params)
+          // $.post('/victory', data, function()
+            // {
+             window.location.href= "/victory?" +params;
+             
+           // });
         
         }
       else
@@ -38,7 +45,11 @@ $(document).ready(function(){
             winner : p2,
             loser : p1
           };
-          $.post('/victory', data);
+
+          var params = $.param(data)
+          // $.post('/victory', data, function(){
+            window.location.href="/victory?"+ params;
+          // });
       
         }
     }
