@@ -9,8 +9,10 @@ function Game(player1, player2){
 	this.player2 = player2
 };
 
-Game.prototype.checkFinished = function(){
-
+Game.prototype.finished = function(player){
+  if ($(player.track_id + " td:last-child" ).hasClass('active')){
+  	return true;
+  }
 };
 
 Game.prototype.movePlayer = function(player){
@@ -20,6 +22,13 @@ Game.prototype.movePlayer = function(player){
   $(next).addClass('active')
 };
 
+Game.prototype.raceTime = function(start, finish){
+	this.start = start;
+	this.finish = finish;
+	this.race_time = function(){
+	  return this.finish - this.start;
+	}
+};
 
 $(document).ready(function(){
 
@@ -31,17 +40,21 @@ $(document).ready(function(){
   console.log(player2)
   console.log(game)
 
-  raceStart = new Date();
+  var raceStart = new Date();
 
    $(this).keyup(function(event){
 
       if (event.keyCode == 81){
-      	console.log('player1 moving')
+      	game.finished(player1)
     	game.movePlayer(player1)
+    	
       }
       else if (event.keyCode == 80){  
-      	console.log('player2 moving')
-    	game.movePlayer(player2)  
+      	game.finished(player2)
+    	game.movePlayer(player2) 
   	  }
+  	    if (game.finished === true){
+  		  alert("Finished")
+  	    }
   });
 });
